@@ -21,6 +21,24 @@ public class MovieRepository {
         directorDb.put(director.getName(),director);
     }
 
+    public String getdirectorFromMovie(String movie)
+    {
+        String directorName ="";
+
+        for(String director:directorMovieDb.keySet())
+        {
+            List<String>movielist = directorMovieDb.get(director);
+            for(int i =0 ; i < movielist.size();i++)
+            {
+                if(movielist.get(i).equals(movie))
+                {
+                    directorName=director;
+                    return directorName;
+                }
+            }
+        }
+        return directorName;
+    }
     public void directorMoviePair(String movie, String director){
 
 
